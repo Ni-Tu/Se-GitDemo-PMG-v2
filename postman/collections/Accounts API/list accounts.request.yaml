@@ -1,0 +1,15 @@
+$kind: http-request
+name: List accounts
+method: GET
+url: '{{base_url}}/accounts'
+order: 1000
+event:
+  - listen: test
+    script:
+      exec: |
+        pm.test('Status is 200', () => pm.response.to.have.status(200));
+        pm.test('Returns account list', () => {
+          const json = pm.response.json();
+          pm.expect(json.data).to.be.an('array');
+        });
+      language: json

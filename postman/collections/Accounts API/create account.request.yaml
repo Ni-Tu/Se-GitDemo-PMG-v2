@@ -1,0 +1,26 @@
+$kind: http-request
+name: Create account
+method: POST
+url: '{{base_url}}/accounts'
+order: 3000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "id": "ACC-2001",
+      "name": "Example Corp",
+      "industry": "Financial Services",
+      "status": "active"
+    }
+event:
+  - listen: test
+    script:
+      exec: |
+        pm.test('Status is 201', () => pm.response.to.have.status(201));
+        pm.test('Has account id', () => {
+          pm.expect(pm.response.json().id).to.eql('ACC-2001');
+        });
+      language: json

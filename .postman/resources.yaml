@@ -1,0 +1,6 @@
+# Link this folder to YOUR Postman team workspace on first connect.
+# Postman desktop → Files → Open Folder → Connect → Local View → pick your workspace.
+
+localResources:
+  specs:
+    - ../openapi.yaml

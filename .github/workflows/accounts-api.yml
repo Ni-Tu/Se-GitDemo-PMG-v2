@@ -1,0 +1,43 @@
+name: Accounts API checks
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install API dependencies
+        run: npm install
+
+      - name: Install Postman CLI
+        run: curl -o- "https://dl-cli.pstmn.io/install/unix.sh" | sh
+
+      - name: Start API
+        run: |
+          node server.js &
+          for i in $(seq 1 20); do
+            curl -sf http://localhost:3000/accounts && break
+            sleep 1
+          done
+
+      - name: Run Postman collection (from repo files)
+        run: postman collection run "postman/collections/Accounts API"
+
+      - name: Publish to Postman Cloud (main only)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        env:
+          POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
+        run: |
+          postman login --with-api-key "$POSTMAN_API_KEY"
+          postman workspace prepare
+          postman workspace push -y

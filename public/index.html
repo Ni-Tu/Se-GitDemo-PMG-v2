@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accounts Portal — Postman Native Git Demo</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <rect width="44" height="44" rx="11" fill="#FF6C37"/>
+          <circle cx="22" cy="22" r="14" fill="#fff" opacity="0.95"/>
+          <path d="M22 12l2.5 7.5H32l-6 4.5 2.5 7.5L22 27l-6.5 4.5 2.5-7.5-6-4.5h7.5L22 12z" fill="#FF6C37"/>
+        </svg>
+        <div>
+          <span class="brand-name">Accounts API</span>
+          <span class="brand-sub">Postman Demo</span>
+        </div>
+      </div>
+
+      <p class="nav-label">Navigation</p>
+      <nav class="nav">
+        <a class="nav-item active" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Dashboard
+        </a>
+        <a class="nav-item" href="#accounts">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          Accounts
+        </a>
+        <a class="nav-item" href="/openapi.yaml" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          OpenAPI Spec
+        </a>
+        <a class="nav-item" href="https://github.com/Ni-Tu/SE-GitDemo" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          GitHub Repo
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="api-badge">
+          <span class="pulse"></span>
+          API live · localhost:3000
+        </div>
+        <div class="sidebar-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+          Native Git · Local View
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            Postman v12 Native Git
+          </div>
+          <h1>Customer <span>Accounts</span> Portal</h1>
+          <p class="hero-desc">
+            A spec-first demo where your API code, OpenAPI contract, and Postman collection live together in one Git repo — ready for PR review and CI.
+          </p>
+        </div>
+        <svg class="hero-art" viewBox="0 0 200 160" fill="none" aria-hidden="true">
+          <rect x="20" y="30" width="70" height="90" rx="8" fill="#fff" stroke="#FF6C37" stroke-width="2"/>
+          <rect x="28" y="42" width="54" height="6" rx="3" fill="#FF6C37" opacity="0.3"/>
+          <rect x="28" y="54" width="40" height="4" rx="2" fill="#e5e7eb"/>
+          <rect x="28" y="64" width="48" height="4" rx="2" fill="#e5e7eb"/>
+          <rect x="28" y="78" width="20" height="10" rx="3" fill="#dbeafe"/>
+          <text x="38" y="86" font-size="6" fill="#2563eb" font-weight="bold">GET</text>
+          <rect x="110" y="20" width="70" height="100" rx="8" fill="#1c1c1c"/>
+          <circle cx="145" cy="55" r="18" fill="#FF6C37"/>
+          <path d="M145 45l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9l3-9z" fill="#fff"/>
+          <rect x="118" y="82" width="54" height="4" rx="2" fill="#444"/>
+          <rect x="118" y="92" width="38" height="4" rx="2" fill="#444"/>
+          <path d="M95 75h15l8 8" stroke="#FF6C37" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="103" cy="75" r="4" fill="#FF6C37"/>
+        </svg>
+      </section>
+
+      <div class="topbar">
+        <div class="topbar-meta">
+          <span class="endpoint-pill">
+            <span class="method-get">GET</span>
+            /accounts
+          </span>
+        </div>
+        <button type="button" class="btn-primary" id="refreshBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+          Refresh data
+        </button>
+      </div>
+
+      <section class="workflow">
+        <article class="workflow-card">
+          <div class="workflow-icon orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+          </div>
+          <h3>OpenAPI Spec</h3>
+          <p>Contract-first design in <code>openapi.yaml</code> — the source of truth for your API surface.</p>
+        </article>
+        <article class="workflow-card">
+          <div class="workflow-icon dark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+          </div>
+          <h3>API Implementation</h3>
+          <p>Express server in <code>server.js</code> serves this UI and the REST endpoints below.</p>
+        </article>
+        <article class="workflow-card">
+          <div class="workflow-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Postman Collection</h3>
+          <p>Tests and requests in <code>postman/</code> — edit in Local View, commit with your PR.</p>
+        </article>
+      </section>
+
+      <section class="stats">
+        <article class="stat-card">
+          <div class="stat-icon orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <p class="stat-label">Total accounts</p>
+            <p class="stat-value" id="statTotal">—</p>
+          </div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <div>
+            <p class="stat-label">Active</p>
+            <p class="stat-value" id="statActive">—</p>
+          </div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon slate">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <p class="stat-label">API version</p>
+            <p class="stat-value">v1.0.0</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="accounts">
+        <div class="panel-head">
+          <div>
+            <h2>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              Account directory
+            </h2>
+            <p>Live data from <code>GET /accounts</code> — same endpoints in your Postman collection</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Account ID</th>
+                <th>Organization</th>
+                <th>Industry</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="accountRows">
+              <tr><td colspan="4" class="loading">Loading accounts…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="demo-banner">
+        <svg class="banner-art" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <circle cx="50" cy="50" r="45" fill="rgba(255,108,55,0.15)"/>
+          <circle cx="50" cy="50" r="32" fill="#FF6C37"/>
+          <path d="M50 32l4 12h12l-10 7 4 12-10-7-10 7 4-12-10-7h12l4-12z" fill="#fff"/>
+          <circle cx="22" cy="28" r="6" fill="#fff" opacity="0.2"/>
+          <circle cx="78" cy="72" r="4" fill="#fff" opacity="0.15"/>
+        </svg>
+        <div>
+          <h3>Built for <span>Postman Native Git</span></h3>
+          <p>This UI, <strong>openapi.yaml</strong>, and <strong>postman/</strong> live in one repo. Open the folder in Postman desktop → <strong>Files → Local View</strong> — then ship changes through the same PR as your code.</p>
+        </div>
+        <div class="banner-actions">
+          <a class="banner-link" href="/openapi.yaml" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg>
+            View OpenAPI
+          </a>
+          <a class="banner-link" href="https://github.com/Ni-Tu/SE-GitDemo" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            Open on GitHub
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/js/app.js"></script>
+</body>
+</html>

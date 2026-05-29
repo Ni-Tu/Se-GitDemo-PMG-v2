@@ -1,0 +1,12 @@
+{
+  "name": "accounts-spec-demo",
+  "version": "1.0.0",
+  "description": "Spec-first Postman v12 Native Git demo — Accounts API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

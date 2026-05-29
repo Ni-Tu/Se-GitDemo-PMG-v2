@@ -1,7 +1,7 @@
 # Accounts Spec Demo — GitHub baseline (v1.0.0)
 
 **This folder is the starting state for your customer demo.**  
-Push this to **https://github.com/Ni-Tu/SE-GitDemo** before each demo, then `git clone` it live.
+Push this to **https://github.com/Ni-Tu/Se-GitDemo-PMG-v2** before each demo, then `git clone` it live.
 
 **Path:** `/Users/nituroy/Documents/DEMO/accounts-spec-demo-starter`
 
@@ -31,11 +31,11 @@ git init
 git add .
 git commit -m "Demo baseline: Accounts API v1.0.0"
 git branch -M main
-git remote add origin https://github.com/Ni-Tu/SE-GitDemo.git
+git remote add origin https://github.com/Ni-Tu/Se-GitDemo-PMG-v2.git
 git push -u origin main --force
 ```
 
-Then on stage: `git clone https://github.com/Ni-Tu/SE-GitDemo.git`
+Then on stage: `git clone https://github.com/Ni-Tu/Se-GitDemo-PMG-v2.git`
 
 ---
 
@@ -58,4 +58,3 @@ Then on stage: `git clone https://github.com/Ni-Tu/SE-GitDemo.git`
 ```
 
 Full customer script: **[DEMO-GUIDE.md](./DEMO-GUIDE.md)**
-# Se-GitDemo-PMG-v2
