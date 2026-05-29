@@ -13,8 +13,24 @@ body:
       "id": "ACC-2001",
       "name": "Example Corp",
       "industry": "Financial Services",
-      "status": "active"
+      "status": "active",
+      "tier": "premium"
     }
+responses:
+  - name: Created example
+    status:
+      code: 201
+      reason: Created
+    body:
+      type: json
+      content: |-
+        {
+          "id": "ACC-2001",
+          "name": "Example Corp",
+          "industry": "Financial Services",
+          "status": "active",
+          "tier": "premium"
+        }
 event:
   - listen: test
     script:
@@ -22,5 +38,8 @@ event:
         pm.test('Status is 201', () => pm.response.to.have.status(201));
         pm.test('Has account id', () => {
           pm.expect(pm.response.json().id).to.eql('ACC-2001');
+        });
+        pm.test('Created account includes tier', () => {
+          pm.expect(pm.response.json().tier).to.eql('premium');
         });
       language: json

@@ -6,6 +6,21 @@ order: 2000
 pathVariables:
   - key: id
     value: '{{accountId}}'
+responses:
+  - name: Success example
+    status:
+      code: 200
+      reason: OK
+    body:
+      type: json
+      content: |-
+        {
+          "id": "ACC-1001",
+          "name": "Northwind Traders",
+          "industry": "Retail",
+          "status": "active",
+          "tier": "premium"
+        }
 event:
   - listen: test
     script:
@@ -13,5 +28,8 @@ event:
         pm.test('Status is 200', () => pm.response.to.have.status(200));
         pm.test('Has account id', () => {
           pm.expect(pm.response.json().id).to.eql(pm.variables.get('accountId'));
+        });
+        pm.test('Account includes tier', () => {
+          pm.expect(pm.response.json()).to.have.property('tier');
         });
       language: json

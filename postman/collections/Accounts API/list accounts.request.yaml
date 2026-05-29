@@ -3,6 +3,26 @@ name: List accounts
 method: GET
 url: '{{base_url}}/accounts'
 order: 1000
+responses:
+  - name: Success example
+    status:
+      code: 200
+      reason: OK
+    body:
+      type: json
+      content: |-
+        {
+          "count": 1,
+          "data": [
+            {
+              "id": "ACC-1001",
+              "name": "Northwind Traders",
+              "industry": "Retail",
+              "status": "active",
+              "tier": "premium"
+            }
+          ]
+        }
 event:
   - listen: test
     script:
@@ -11,5 +31,9 @@ event:
         pm.test('Returns account list', () => {
           const json = pm.response.json();
           pm.expect(json.data).to.be.an('array');
+        });
+        pm.test('Accounts include tier', () => {
+          const json = pm.response.json();
+          pm.expect(json.data[0]).to.have.property('tier');
         });
       language: json
